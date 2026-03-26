@@ -4,12 +4,12 @@ import os
 import re
 
 st.title("Downloader Video YouTube")
-st.write("Inserisci il link del video e seleziona la qualità desiderata per avviare il download.")
+st.write("Inserisci il link del video e seleziona la qualit√† desiderata per avviare il download.")
 
 url = st.text_input("Link YouTube:")
 
 opzioni_risoluzione = [
-    "Migliore qualità (fino a 4K)", 
+    "Migliore qualit√† (fino a 4K)", 
     "1080p", 
     "720p", 
     "Solo Audio (MP3)"
@@ -43,7 +43,7 @@ if bottone_scarica and url:
         'noprogress': True
     }
 
-    if scelta == "Migliore qualità (fino a 4K)":
+    if scelta == "Migliore qualit√† (fino a 4K)":
         ydl_opts['format'] = 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
         ydl_opts['merge_output_format'] = 'mp4'
     elif scelta == "1080p":
@@ -87,6 +87,6 @@ if bottone_scarica and url:
         os.remove(filename_finale)
         
     except Exception as e:
-        status_text.error(f"Si è verificato un errore: {str(e)}")
+        status_text.error(f"Si √® verificato un errore: {str(e)}")
 elif bottone_scarica and not url:
     st.warning("Inserisci un link valido prima di procedere.")
