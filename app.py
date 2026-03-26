@@ -1,3 +1,4 @@
+%%writefile app.py
 import streamlit as st
 import yt_dlp
 import os
@@ -40,7 +41,14 @@ if bottone_scarica and url:
         'outtmpl': '%(title)s.%(ext)s',
         'progress_hooks': [aggiorna_progresso],
         'quiet': True,
-        'noprogress': True
+        'noprogress': True,
+        'impersonate': 'chrome',
+        'source_address': '0.0.0.0',
+        'http_headers': {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept-Language': 'it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7',
+            'Sec-Fetch-Mode': 'navigate'
+        }
     }
 
     if scelta == "Migliore qualità (fino a 4K)":
